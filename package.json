@@ -1,0 +1,18 @@
+{
+  "name": "com.pluginset.huawei",
+  "displayName": "PluginSet Huawei SDK",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "description": "HMS Core SDK (6.13.0.300) with PluginSet",
+  "keywords": [
+    "pluginset",
+    "huawei"
+  ],
+  "dependencies": {
+    "com.pluginset.core": "1.0.0"
+  },
+  "author": {
+    "name": "LyneXiao",
+    "email": "lixonxs@icloud.com"
+  }
+}

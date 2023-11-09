@@ -1,0 +1,20 @@
+{
+    "name": "PluginSet.HMS",
+    "rootNamespace": "",
+    "references": [
+        "PluginSet.Core",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [
+        "Android",
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
