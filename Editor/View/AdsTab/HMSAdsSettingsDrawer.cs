@@ -156,7 +156,11 @@ namespace HmsPlugin
             }
             else
             {
+#if false
                 var prefab = AssetDatabase.LoadAssetAtPath("Assets/Huawei/Prefabs/SplashAdPreview.prefab", typeof(HMSSplashAdPreview));
+#else
+                var prefab = AssetDatabase.LoadAssetAtPath($"{PluginSet.Core.Global.GetPackageFullPath("com.pluginset.huawei")}/Prefabs/SplashAdPreview.prefab", typeof(HMSSplashAdPreview));
+#endif
                 _splashAdPreviewObj = GameObject.Instantiate(prefab) as HMSSplashAdPreview;
                 SetupPreviewButtonText(false);
             }

@@ -16,6 +16,7 @@ internal class HMSPluginUpdater
 
     internal static void Request(bool ignoreSession = false)
     {
+#if false
         if (!ignoreSession)
         {
             if (SessionState.GetBool(sessionState, false)) return;
@@ -31,6 +32,7 @@ internal class HMSPluginUpdater
 
             request.StartRequest(ignoreSession);
         }, TaskScheduler.FromCurrentSynchronizationContext());
+#endif
     }
 }
 

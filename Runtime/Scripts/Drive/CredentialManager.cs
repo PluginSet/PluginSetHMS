@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace HmsPlugin
 {
+#if false
     class CredentialManager
+#else
+    public class CredentialManager
+#endif
     {
         private DriveCredential mDriveCredential;
 

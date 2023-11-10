@@ -203,16 +203,19 @@ namespace HmsPlugin
                 pluginEnabled = false;
             }
 
+#if false
             var huaweiMobileServicesDLL = AssetImporter.GetAtPath("Assets/Huawei/Dlls/HuaweiMobileServices.dll") as PluginImporter;
             var appDebugAar = AssetImporter.GetAtPath("Assets/Huawei/Plugins/Android/app-debug.aar") as PluginImporter;
             var bookInfo = AssetImporter.GetAtPath("Assets/Huawei/Plugins//Android/BookInfo.java") as PluginImporter;
             var objectTypeInfoHelper = AssetImporter.GetAtPath("Assets/Huawei/Plugins/Android/ObjectTypeInfoHelper.java") as PluginImporter;
             var pushKitPlugin = AssetImporter.GetAtPath("Assets/Huawei/Plugins/Android/HMSUnityPushKit.plugin") as PluginImporter;
             var modeling3dPlugin = AssetImporter.GetAtPath("Assets/Huawei/Plugins/Android/HMSUnityModelingKit.plugin") as PluginImporter;
+#endif
 
             if (pluginEnabled)
                 PrepareGradleFile();
 
+#if false
             if (bookInfo != null)
                 bookInfo.SetCompatibleWithPlatform(BuildTarget.Android, HMSMainEditorSettings.Instance.Settings.GetBool(CloudDBToggleEditor.CloudDBEnabled) && pluginEnabled);
             if (objectTypeInfoHelper != null)
@@ -225,7 +228,8 @@ namespace HmsPlugin
                 modeling3dPlugin.SetCompatibleWithPlatform(BuildTarget.Android, HMSMainEditorSettings.Instance.Settings.GetBool(Modeling3dKitToggleEditor.Modeling3dkitEnabled) && pluginEnabled);
             if (appDebugAar != null)
                 appDebugAar.SetCompatibleWithPlatform(BuildTarget.Android, pluginEnabled);
-
+#endif
+            
             HMSEditorUtils.HandleAssemblyDefinitions(pluginEnabled);
         }
 

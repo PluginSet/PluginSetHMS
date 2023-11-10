@@ -4,6 +4,10 @@ using HuaweiMobileServices.IAP;
 using HuaweiMobileServices.Utils;
 using System;
 using System.Collections.Generic;
+#if false
+#else
+using System.Linq;
+#endif
 using UnityEngine;
 
 namespace HmsPlugin
@@ -110,7 +114,11 @@ namespace HmsPlugin
             }
         }
 
+#if false
         public void InitializeIAP()
+#else
+        public void InitializeIAP(Dictionary<string, int > products = null)
+#endif
         {
             iapClient = Iap.GetIapClient();
             ITask<EnvReadyResult> task = iapClient.EnvReady;
@@ -122,7 +130,11 @@ namespace HmsPlugin
                 iapAvailable = true;
                 OnInitializeIAPSuccess?.Invoke();
 
+#if false
                 Prepare_IAP_Products();
+#else
+                Prepare_IAP_Products(products);
+#endif
 
             }).AddOnFailureListener((exception) =>
             {
@@ -146,7 +158,11 @@ namespace HmsPlugin
                         if (returnEnum == HMSResponses.IapStatusCodes.ORDER_STATE_SUCCESS)
                         {
                             Debug.Log($"[{Tag}]: Success on iapEx Resolution");
+#if false
                             Prepare_IAP_Products();
+#else
+                            Prepare_IAP_Products(products);
+#endif
                         }
                         else
                         {
@@ -168,7 +184,11 @@ namespace HmsPlugin
             });
         }
 
+#if false
         private void Prepare_IAP_Products()
+#else
+        private void Prepare_IAP_Products(Dictionary<string, int> products)
+#endif
         {
 
             void ConsumeControl()
@@ -199,9 +219,27 @@ namespace HmsPlugin
 
             void NextPhase()
             {
+#if false
                 var consumables = HMSIAPProductListSettings.Instance.GetProductIdentifiersByType(HMSIAPProductType.Consumable);
                 var nonConsumables = HMSIAPProductListSettings.Instance.GetProductIdentifiersByType(HMSIAPProductType.NonConsumable);
                 var subscriptions = HMSIAPProductListSettings.Instance.GetProductIdentifiersByType(HMSIAPProductType.Subscription);
+#else
+                List<string>  consumables;
+                List<string>  nonConsumables;
+                List<string>  subscriptions;
+                if (products == null || products.Count <= 0)
+                {
+                    consumables = HMSIAPProductListSettings.Instance.GetProductIdentifiersByType(HMSIAPProductType.Consumable);
+                    nonConsumables = HMSIAPProductListSettings.Instance.GetProductIdentifiersByType(HMSIAPProductType.NonConsumable);
+                    subscriptions = HMSIAPProductListSettings.Instance.GetProductIdentifiersByType(HMSIAPProductType.Subscription);
+                }
+                else
+                {
+                    consumables = products.Where(kv => kv.Value == (int)HMSIAPProductType.Consumable).Select(kv2 => kv2.Key).ToList();
+                    nonConsumables = products.Where(kv => kv.Value == (int)HMSIAPProductType.NonConsumable).Select(kv2 => kv2.Key).ToList();
+                    subscriptions = products.Where(kv => kv.Value == (int)HMSIAPProductType.Subscription).Select(kv2 => kv2.Key).ToList();
+                }
+#endif
 
                 GetProductInfo(consumables, nonConsumables, subscriptions);
 
@@ -429,7 +467,11 @@ namespace HmsPlugin
 
         #region Purchase
 
+#if false
         public void PurchaseProduct(string productId, bool consume = true)
+#else
+        public void PurchaseProduct(string productId, bool consume = true, string payload = "")
+#endif
         {
             Debug.Log($"[{Tag}]: PurchaseProduct");
 
@@ -437,7 +479,11 @@ namespace HmsPlugin
 
             if (productInfo != null)
             {
+#if false
                 PurchaseProductMethod(productInfo, consume);
+#else
+            PurchaseProductMethod(productInfo, consume, payload);
+#endif
             }
             else
             {
@@ -445,7 +491,11 @@ namespace HmsPlugin
             }
         }
 
+#if false
         private void PurchaseProductMethod(ProductInfo productInfo, bool consume)
+#else
+        private void PurchaseProductMethod(ProductInfo productInfo, bool consume, string payload)
+#endif
         {
             Debug.Log($"[{Tag}]: PurchaseProductMethod");
 
@@ -459,7 +509,11 @@ namespace HmsPlugin
             {
                 PriceType = productInfo.PriceType,
                 ProductId = productInfo.ProductId,
+#if false
                 DeveloperPayload = string.Empty
+#else
+                DeveloperPayload = payload
+#endif
             };
 
             bool isSubscription = (IAPProductType)productInfo.PriceType.Value == IAPProductType.Subscription;

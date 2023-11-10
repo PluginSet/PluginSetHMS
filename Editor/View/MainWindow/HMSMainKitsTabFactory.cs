@@ -94,7 +94,9 @@ internal class HMSMainKitsTabFactory
         //tab.AddDrawer(new HorizontalLine());
         tab.AddDrawer(new Spacer());
         tab.AddDrawer(new HorizontalSequenceDrawer(new Label("HMS Unity Plugin v" + versionInfo).SetBold(true), new Spacer(), new Clickable(new Label(guiContent: new GUIContent(EditorGUIUtility.FindTexture("_Help"))), () => { Application.OpenURL("https://evilminddevs.gitbook.io/hms-unity-plugin/"); })));
+#if false
         tab.AddDrawer(new HelpboxAGConnectFile());
+#endif
 
         toggleEditors.Add(adsToggleEditor);
         toggleEditors.Add(accountEditor);

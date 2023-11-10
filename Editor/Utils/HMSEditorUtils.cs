@@ -9,10 +9,15 @@ using UnityEngine;
 
 namespace HmsPlugin
 {
+#if false
+#else
+    [InitializeOnLoad]
+#endif
     public static class HMSEditorUtils
     {
         public static void HandleAssemblyDefinitions(bool enable, bool refreshAssets = true)
         {
+#if false
             string huaweiMobileServicesCorePath = Application.dataPath + "/Huawei/HuaweiMobileServices.Core.asmdef";
             var huaweiMobileServicesCore = JsonUtility.FromJson<AssemblyDefinitionInfo>(File.ReadAllText(huaweiMobileServicesCorePath));
 
@@ -23,6 +28,7 @@ namespace HmsPlugin
             }
             if (refreshAssets)
                 AssetDatabase.Refresh();
+#endif
         }
 
         public static void SetHMSPlugin(bool status, bool enableToggle, bool refreshAssets = true)
@@ -383,11 +389,38 @@ namespace HmsPlugin
             };
         }
 
+#if false
         public static HMSAGConnectConfig GetAGConnectConfig()
         {
             var obj = JsonUtility.FromJson<HMSAGConnectConfig>(File.ReadAllText(Application.streamingAssetsPath + "/agconnect-services.json"));
             return obj;
         }
+#else
+        private static string _agConnectConfigFile;
+
+        static HMSEditorUtils()
+        {
+            _agConnectConfigFile = EditorUserSettings.GetConfigValue("huawei_AGConnectConfigFile");
+        }
+        
+        public static void SetAGConnectConfigFile(string filePath)
+        {
+            _agConnectConfigFile = filePath;
+            EditorUserSettings.SetConfigValue("huawei_AGConnectConfigFile", filePath);
+        }
+        
+        public static HMSAGConnectConfig GetAGConnectConfig()
+        {
+            if (string.IsNullOrEmpty(_agConnectConfigFile))
+                throw new Exception("Call SetAGConnectConfigFile before calling GetAGConnectConfig");
+
+            if (!File.Exists(_agConnectConfigFile))
+                throw new Exception("AGConnect config file not found at path: " + _agConnectConfigFile);
+            
+            var obj = JsonUtility.FromJson<HMSAGConnectConfig>(File.ReadAllText(_agConnectConfigFile));
+            return obj;
+        }
+#endif
 
         [Serializable]
         public class CountryInfo
