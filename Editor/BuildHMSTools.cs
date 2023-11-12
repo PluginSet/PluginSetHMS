@@ -24,11 +24,22 @@ namespace PluginSet.HMS.Editor
             
             HMSEditorUtils.SetAGConnectConfigFile(buildParams.AGConnectServiceJson);
             
-            // if (buildParams.EnablePurchase)
-            //     context.Symbols.Add("ENABLE_HMS_PURCHASE");
+            context.Symbols.Add("ENABLE_HMS");
+
+            if (HMSMainEditorSettings.Instance.Settings.GetBool(AccountToggleEditor.AccountKitEnabled))
+            {
+                context.Symbols.Add("ENABLE_HMS_LOGIN");
+                Global.CopyDependenciesFileInLib("com.pluginset.huawei", "HuaweiAccountDependencies.xml");
+            }
+
+            if (HMSMainEditorSettings.Instance.Settings.GetBool(IAPToggleEditor.IAPKitEnabled))
+            {
+                context.Symbols.Add("ENABLE_HMS_PURCHASE");
+                Global.CopyDependenciesFileInLib("com.pluginset.huawei", "HuaweiIAPDependencies.xml");
+            }
             
             context.AddLinkAssembly("PluginSet.HMS");
-            Global.CopyDependenciesInLib("com.pluginset.huawei");
+            context.AddLinkAssembly("HuaweiMobileServices");
         }
 
         [AndroidProjectModify]
@@ -41,7 +52,6 @@ namespace PluginSet.HMS.Editor
             if (!string.IsNullOrEmpty(buildParams.AGConnectServiceJson) && File.Exists(buildParams.AGConnectServiceJson))
                 File.Copy(buildParams.AGConnectServiceJson, Path.Combine(projectManager.LauncherPath, "agconnect-services.json"), true);
             
-#if false
             Global.AppendProguardInLib(projectManager.Proguard, "com.pluginset.huawei");
             
             var repo = projectManager.ProjectGradle.ROOT.GetOrCreateNode("allprojects/buildscript/repositories/maven");
@@ -57,7 +67,7 @@ namespace PluginSet.HMS.Editor
             
             var doc = projectManager.LauncherManifest;
             doc.SetMetaData("com.huawei.hms.client.appid", $"appid={buildParams.AppId}");
-#endif
+            // doc.SetMetaData("com.huawei.hms.client.channel.androidMarket", "false");
         }
     }
 }

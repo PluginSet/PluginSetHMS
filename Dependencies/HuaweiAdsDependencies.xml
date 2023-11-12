@@ -1,0 +1,30 @@
+<!-- Copyright (C) 2018 Google Inc. All Rights Reserved.
+
+FirebaseApp iOS and Android Dependencies.
+-->
+
+<dependencies>
+  <androidPackages>
+    <androidPackage spec="com.huawei.hms:hwid:6.9.0.301">
+      <repositories>
+        <repository>https://developer.huawei.com/repo/</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.huawei.hms:ads-consent:3.4.61.300">
+      <repositories>
+        <repository>https://developer.huawei.com/repo/</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.huawei.hms:ads-identifier:3.4.58.301">
+      <repositories>
+        <repository>https://developer.huawei.com/repo/</repository>
+      </repositories>
+    </androidPackage>
+    <androidPackage spec="com.huawei.hms:ads-installreferrer:3.4.58.301">
+      <repositories>
+        <repository>https://developer.huawei.com/repo/</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+</dependencies>
+

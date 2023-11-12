@@ -7,7 +7,11 @@ using UnityEngine;
 using System;
 using System.Text.RegularExpressions;
 
+#if false
 public class HMSGradleFixer : IPostGenerateGradleAndroidProject
+#else
+public class HMSGradleFixer
+#endif
 {
     public int callbackOrder => 1;
     private const string MINGRADLEVERSION = "3.5.4";

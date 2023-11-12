@@ -10,7 +10,11 @@ using UnityEngine;
 
 namespace HmsPlugin
 {
+#if false
     public class HMSGradleWorker : HMSEditorSingleton<HMSGradleWorker>, IPreprocessBuildWithReport
+#else
+    public class HMSGradleWorker : HMSEditorSingleton<HMSGradleWorker>
+#endif
     {
         private Dictionary<string, string[]> gradleSettings;
         public int callbackOrder => 0;

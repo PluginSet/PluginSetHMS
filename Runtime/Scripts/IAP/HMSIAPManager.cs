@@ -28,6 +28,11 @@ namespace HmsPlugin
 
         public Action<ConsumeOwnedPurchaseResult> OnConsumePurchaseSuccess { get; set; }
         public Action<HMSException> OnConsumePurchaseFailure { get; set; }
+        
+#if false
+#else
+        public Action<InAppPurchaseData> OnUnconsumeConsumePurchaseLoaded { get; set; }
+#endif
 
         public Action<PurchaseResultInfo> OnBuyProductSuccess { get; set; }
         public Action<int> OnBuyProductFailure { get; set; }
@@ -200,6 +205,7 @@ namespace HmsPlugin
                     {
                         foreach (var obj in ownedPurchaseResult.InAppPurchaseDataList)
                         {
+#if false
                             if (sandboxState.SandboxUser)
                             {
                                 if ((IAPProductType)obj.Kind == IAPProductType.Consumable || (IAPProductType)obj.Kind == IAPProductType.NonConsumable)
@@ -211,6 +217,12 @@ namespace HmsPlugin
                             {
                                 ConsumePurchaseWithToken(obj.PurchaseToken);
                             }
+#else
+                            if ((IAPProductType)obj.Kind == IAPProductType.Consumable && obj.ConsumptionState == 0)
+                            {
+                                OnUnconsumeConsumePurchaseLoaded?.Invoke(obj);
+                            }
+#endif
                         }
                     }
                 });
@@ -482,12 +494,16 @@ namespace HmsPlugin
 #if false
                 PurchaseProductMethod(productInfo, consume);
 #else
-            PurchaseProductMethod(productInfo, consume, payload);
+                PurchaseProductMethod(productInfo, consume, payload);
 #endif
             }
             else
             {
                 Debug.LogError($"[{Tag}]: {productId} could not be found in retrieved product list!");
+#if false
+#else
+                OnBuyProductFailure?.Invoke(OrderStatusCode.ORDER_STATE_PRODUCT_INVALID);
+#endif
             }
         }
 
@@ -512,7 +528,7 @@ namespace HmsPlugin
 #if false
                 DeveloperPayload = string.Empty
 #else
-                DeveloperPayload = payload
+                DeveloperPayload = payload ?? string.Empty
 #endif
             };
 

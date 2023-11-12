@@ -2,8 +2,7 @@
     "name": "PluginSet.HMS",
     "rootNamespace": "",
     "references": [
-        "PluginSet.Core",
-        "UnityEngine.UI"
+        "PluginSet.Core"
     ],
     "includePlatforms": [
         "Android",
