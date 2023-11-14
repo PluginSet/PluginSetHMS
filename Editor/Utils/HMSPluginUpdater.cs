@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 using HmsPlugin;
 using System.IO;
 using System.Threading.Tasks;
+using Version = System.Version;
 
 internal class HMSPluginUpdater
 {
