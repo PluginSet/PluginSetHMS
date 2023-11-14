@@ -1,4 +1,4 @@
-#if ENABLE_HMS && ENABLE_HMS_PURCHASE
+#if ENABLE_HMS_PURCHASE
 using System;
 using System.Collections.Generic;
 using HmsPlugin;

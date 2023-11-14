@@ -5,7 +5,9 @@ using PluginSet.Core;
 
 namespace PluginSetHMS.Runtime
 {
+#if !UNITY_EDITOR
     [PluginRegister]
+#endif
     public partial class PluginSetHMS: PluginBase, IStartPlugin
     {
         [AttributeUsage(AttributeTargets.Method)]

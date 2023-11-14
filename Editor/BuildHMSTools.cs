@@ -38,6 +38,12 @@ namespace PluginSet.HMS.Editor
                 Global.CopyDependenciesFileInLib("com.pluginset.huawei", "HuaweiIAPDependencies.xml");
             }
             
+            if (HMSMainEditorSettings.Instance.Settings.GetBool(AdsToggleEditor.AdsKitEnabled))
+            {
+                context.Symbols.Add("ENABLE_HMS_ADS");
+                Global.CopyDependenciesFileInLib("com.pluginset.huawei", "HuaweiAdsDependencies.xml");
+            }
+            
             context.AddLinkAssembly("PluginSet.HMS");
             context.AddLinkAssembly("HuaweiMobileServices");
         }

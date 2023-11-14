@@ -5,7 +5,7 @@ FirebaseApp iOS and Android Dependencies.
 
 <dependencies>
   <androidPackages>
-    <androidPackage spec="com.huawei.hms:hwid:6.9.0.301">
+    <androidPackage spec="com.huawei.hms:ads-lite:13.4.61.300">
       <repositories>
         <repository>https://developer.huawei.com/repo/</repository>
       </repositories>
