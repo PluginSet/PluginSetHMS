@@ -9,8 +9,13 @@ using System.Threading;
 
 public class HMSAnalyticsKitManager : HMSManagerSingleton<HMSAnalyticsKitManager>
 {
+#if false
     private HiAnalyticsInstance hiAnalyticsInstance;
     private AndroidJavaObject activity;
+#else
+    public HiAnalyticsInstance hiAnalyticsInstance;
+    public AndroidJavaObject activity;
+#endif
 
     public HMSAnalyticsKitManager()
     {

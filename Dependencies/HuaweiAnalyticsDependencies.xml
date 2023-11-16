@@ -1,0 +1,15 @@
+<!-- Copyright (C) 2018 Google Inc. All Rights Reserved.
+
+FirebaseApp iOS and Android Dependencies.
+-->
+
+<dependencies>
+  <androidPackages>
+    <androidPackage spec="com.huawei.hms:hianalytics:6.4.1.302">
+      <repositories>
+        <repository>https://developer.huawei.com/repo/</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+</dependencies>
+

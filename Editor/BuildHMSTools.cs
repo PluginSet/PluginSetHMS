@@ -44,6 +44,12 @@ namespace PluginSet.HMS.Editor
                 Global.CopyDependenciesFileInLib("com.pluginset.huawei", "HuaweiAdsDependencies.xml");
             }
             
+            if (HMSMainEditorSettings.Instance.Settings.GetBool(AnalyticsToggleEditor.AnalyticsKitEnabled))
+            {
+                context.Symbols.Add("ENABLE_HMS_ANALYTICS");
+                Global.CopyDependenciesFileInLib("com.pluginset.huawei", "HuaweiAnalyticsDependencies.xml");
+            }
+            
             context.AddLinkAssembly("PluginSet.HMS");
             context.AddLinkAssembly("HuaweiMobileServices");
         }
