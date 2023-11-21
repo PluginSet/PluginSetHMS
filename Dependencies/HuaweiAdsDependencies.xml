@@ -5,22 +5,22 @@ FirebaseApp iOS and Android Dependencies.
 
 <dependencies>
   <androidPackages>
-    <androidPackage spec="com.huawei.hms:ads-lite:13.4.61.300">
+    <androidPackage spec="com.huawei.hms:ads-lite:13.4.66.300">
       <repositories>
         <repository>https://developer.huawei.com/repo/</repository>
       </repositories>
     </androidPackage>
-    <androidPackage spec="com.huawei.hms:ads-consent:3.4.61.300">
+    <androidPackage spec="com.huawei.hms:ads-consent:3.4.66.300">
       <repositories>
         <repository>https://developer.huawei.com/repo/</repository>
       </repositories>
     </androidPackage>
-    <androidPackage spec="com.huawei.hms:ads-identifier:3.4.58.301">
+    <androidPackage spec="com.huawei.hms:ads-identifier:3.4.62.300">
       <repositories>
         <repository>https://developer.huawei.com/repo/</repository>
       </repositories>
     </androidPackage>
-    <androidPackage spec="com.huawei.hms:ads-installreferrer:3.4.58.301">
+    <androidPackage spec="com.huawei.hms:ads-installreferrer:3.4.62.300">
       <repositories>
         <repository>https://developer.huawei.com/repo/</repository>
       </repositories>
