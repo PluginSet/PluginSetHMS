@@ -9,9 +9,9 @@ using UnityEngine;
 namespace PluginSetUAPM.Editor
 {
     [InitializeOnLoad]
-    public static class PluginsUMengFilter
+    public static class PluginsHMSFilter
     {
-        static PluginsUMengFilter()
+        static PluginsHMSFilter()
         {
             var fileter = PluginFilter.IsBuildParamsEnable<BuildHMSParams>();
             PluginFilter.RegisterFilter("com.pluginset.huawei/Plugins", fileter);
