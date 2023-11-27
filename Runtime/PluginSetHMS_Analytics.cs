@@ -1,3 +1,4 @@
+#if ENABLE_HMS_ANALYTICS
 using System.Collections;
 using System.Collections.Generic;
 using PluginSet.Core;
@@ -164,3 +165,4 @@ namespace PluginSetHMS.Runtime
         }
     }
 }
+#endif
