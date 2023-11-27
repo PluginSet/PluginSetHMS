@@ -1,4 +1,5 @@
-﻿using HuaweiConstants;
+#if ENABLE_HMS
+using HuaweiConstants;
 using HuaweiMobileServices.Base;
 using HuaweiMobileServices.IAP;
 using HuaweiMobileServices.Utils;
@@ -824,3 +825,4 @@ public enum IAPProductType
     NonConsumable = 1,
     Subscription = 2
 }
+#endif

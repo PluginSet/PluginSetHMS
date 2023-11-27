@@ -1,4 +1,5 @@
-﻿using HuaweiConstants;
+#if ENABLE_HMS
+using HuaweiConstants;
 
 using HuaweiMobileServices.Ads;
 using HuaweiMobileServices.Ads.InstallReferrer;
@@ -742,3 +743,5 @@ namespace HmsPlugin
     }
 
 }
+
+#endif

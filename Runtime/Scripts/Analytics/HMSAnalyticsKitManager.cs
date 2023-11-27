@@ -1,4 +1,5 @@
-﻿using System.Collections;
+#if ENABLE_HMS
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HuaweiMobileServices.Analystics;
@@ -105,3 +106,5 @@ public class HMSAnalyticsKitManager : HMSManagerSingleton<HMSAnalyticsKitManager
     }
 
 }
+
+#endif

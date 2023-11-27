@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.Crash;
+#if ENABLE_HMS
+using HuaweiMobileServices.Crash;
 using HuaweiMobileServices.Utils;
 using UnityEngine;
 using UnityEngine.Diagnostics;
@@ -60,3 +61,5 @@ public class HMSCrashManager : HMSManagerSingleton<HMSCrashManager>
         Debug.Log($"{TAG}CustomReport");
     }
 }
+
+#endif

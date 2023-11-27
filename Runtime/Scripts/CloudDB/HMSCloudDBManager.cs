@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.AuthService;
+#if ENABLE_HMS
+using HuaweiMobileServices.AuthService;
 using HuaweiMobileServices.CloudDB;
 using HuaweiMobileServices.Common;
 using HuaweiMobileServices.Utils;
@@ -335,3 +336,4 @@ namespace HmsPlugin
 
     }
 }
+#endif

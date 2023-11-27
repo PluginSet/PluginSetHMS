@@ -1,4 +1,5 @@
-﻿using System;
+#if ENABLE_HMS
+using System;
 using HuaweiMobileServices.Location;
 using HuaweiMobileServices.Location.Geofences;
 using HuaweiMobileServices.Utils;
@@ -26,3 +27,4 @@ namespace Huawei.Scripts.Location
         }
     }
 }
+#endif

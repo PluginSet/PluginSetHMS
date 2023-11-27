@@ -1,3 +1,4 @@
+#if ENABLE_HMS
 using System;
 
 [Serializable]
@@ -33,3 +34,4 @@ public class Modeling3dDTO
         return base.GetHashCode();
     }
 }
+#endif

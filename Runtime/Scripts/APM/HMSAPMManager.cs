@@ -1,3 +1,4 @@
+#if ENABLE_HMS
 using HuaweiMobileServices.APM;
 using HuaweiMobileServices.Utils;
 
@@ -32,3 +33,5 @@ public class HMSAPMManager : HMSManagerSingleton<HMSAPMManager>
 
 
 }
+
+#endif

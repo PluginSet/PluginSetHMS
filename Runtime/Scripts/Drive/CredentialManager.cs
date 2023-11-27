@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.Drive;
+#if ENABLE_HMS
+using HuaweiMobileServices.Drive;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,3 +63,5 @@ namespace HmsPlugin
         }
     }
 }
+
+#endif

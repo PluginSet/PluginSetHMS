@@ -1,3 +1,4 @@
+#if ENABLE_HMS
 using HuaweiMobileServices.Scan;
 using HuaweiMobileServices.Utils;
 
@@ -59,3 +60,5 @@ public class HMSScanKitManager : HMSManagerSingleton<HMSScanKitManager>
     #endregion
 
 }
+
+#endif

@@ -1,4 +1,5 @@
-﻿using System;
+#if ENABLE_HMS
+using System;
 using HuaweiMobileServices.Location;
 using HuaweiMobileServices.Utils;
 using UnityEngine;
@@ -37,3 +38,4 @@ namespace Huawei.Scripts.Location
         public static void RemoveIdentificationListener() => isListenActivityIdentification = false;
     }
 }
+#endif

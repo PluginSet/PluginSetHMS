@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.Ads;
+#if ENABLE_HMS
+using HuaweiMobileServices.Ads;
 using HuaweiMobileServices.Ads.NativeAd;
 using System;
 using System.Collections;
@@ -164,3 +165,5 @@ public class LargeImageNative : MonoBehaviour
     }
 }
 
+
+#endif

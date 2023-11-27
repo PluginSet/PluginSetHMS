@@ -1,3 +1,4 @@
+#if ENABLE_HMS
 using HuaweiMobileServices.CloudDB;
 using HuaweiMobileServices.Utils;
 using UnityEngine;
@@ -64,3 +65,5 @@ namespace HmsPlugin
 		public void SetObj(AndroidJavaObject arg0) => base.JavaObject = arg0;
 	}
 }
+
+#endif

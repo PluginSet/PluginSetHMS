@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.Base;
+#if ENABLE_HMS
+using HuaweiMobileServices.Base;
 using HuaweiMobileServices.Game;
 using HuaweiMobileServices.Utils;
 using System;
@@ -145,3 +146,5 @@ namespace HmsPlugin
         }
     }
 }
+
+#endif

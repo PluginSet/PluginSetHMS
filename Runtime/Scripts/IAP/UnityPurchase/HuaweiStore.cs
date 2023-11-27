@@ -1,4 +1,5 @@
-﻿#if UNITY_PURCHASING
+#if ENABLE_HMS
+#if UNITY_PURCHASING
 
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -333,5 +334,7 @@ namespace HmsPlugin
 
     }
 }
+
+#endif
 
 #endif

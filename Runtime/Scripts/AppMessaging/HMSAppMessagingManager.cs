@@ -1,4 +1,5 @@
-﻿using HuaweiMobileServices.AppMessaging;
+#if ENABLE_HMS
+using HuaweiMobileServices.AppMessaging;
 using HuaweiMobileServices.Base;
 using HuaweiMobileServices.Id;
 using HuaweiMobileServices.Utils;
@@ -63,3 +64,5 @@ public class HMSAppMessagingManager : HMSManagerSingleton<HMSAppMessagingManager
     }
 }
 
+
+#endif

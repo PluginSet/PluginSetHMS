@@ -1,4 +1,5 @@
-﻿using System.Collections;
+#if ENABLE_HMS
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -157,3 +158,5 @@ public class HMSRemoteConfigManager : HMSManagerSingleton<HMSRemoteConfigManager
     public string GetValueAsString(string paramString) => agc.GetValueAsString(paramString);
 
 }
+
+#endif

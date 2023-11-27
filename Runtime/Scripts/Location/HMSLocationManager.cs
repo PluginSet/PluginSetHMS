@@ -1,3 +1,4 @@
+#if ENABLE_HMS
 using System;
 using HuaweiMobileServices.Location;
 using HuaweiMobileServices.Location.Geofences;
@@ -95,3 +96,4 @@ public class HMSLocationManager : HMSManagerSingleton<HMSLocationManager>
 
     #endregion
 }
+#endif

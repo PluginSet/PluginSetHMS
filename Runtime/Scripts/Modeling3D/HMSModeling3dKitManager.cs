@@ -1,3 +1,4 @@
+#if ENABLE_HMS
 using UnityEngine;
 using System;
 using System.Linq;
@@ -488,3 +489,5 @@ public class HMSModeling3dKitManager : HMSManagerSingleton<HMSModeling3dKitManag
     #endregion
 }
 
+
+#endif

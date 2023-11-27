@@ -1,3 +1,4 @@
+#if ENABLE_HMS
 using HuaweiMobileServices.Nearby;
 using HuaweiMobileServices.Nearby.Discovery;
 using HuaweiMobileServices.Nearby.Transfer;
@@ -78,3 +79,5 @@ namespace HmsPlugin
     }
 }
 
+
+#endif
