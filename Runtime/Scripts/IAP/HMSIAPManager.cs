@@ -690,6 +690,10 @@ namespace HmsPlugin
             OnObtainOwnedPurchasesFailure += (error) =>
             {
                 Debug.LogError($"[{Tag}]: RestorePurchasesError failed. CauseMessage: " + error.WrappedCauseMessage + ", ExceptionMessage: " + error.WrappedExceptionMessage);
+#if false
+#else
+                action?.Invoke(null);
+#endif
             };
 
             GetAllOwnedPurchases();

@@ -237,6 +237,34 @@ namespace PluginSetHMS.Runtime
         {
             onTransactionCompleted -= completed;
         }
+
+        public void RestorePayments(Action<Result> callback = null, string json = null)
+        {
+            HMSIAPManager.Instance.RestoreOwnedPurchases(delegate(OwnedPurchasesResult result)
+            {
+                if (result == null || result.ReturnCode != 0)
+                {
+                    callback?.Invoke(new Result()
+                    {
+                        Success = false,
+                        PluginName = Name,
+                        Code = PluginConstants.FailDefaultCode,
+                        Error = result?.ErrMsg ?? "Restore failed",
+                        Data = json
+                    });
+                }
+                else
+                {
+                    callback?.Invoke(new Result()
+                    {
+                        Success = true,
+                        PluginName = Name,
+                        Code = PluginConstants.SuccessCode,
+                        Data = json
+                    });
+                }
+            });
+        }
     }
 }
 #endif
